@@ -1,0 +1,16 @@
+version: 2
+models:
+  - name: stg_customer
+    description: customers staging table
+  - name: stg_lineitem
+    description: lineitem stageing table
+  - name: stg_nation
+    description: staging table
+  - name: stg_orders
+    description: staging table
+  - name: stg_part
+    description: staging table
+  - name: stg_region
+    description: staging table
+  - name: stg_supplier 
+    description: staging table
