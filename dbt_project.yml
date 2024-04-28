@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
+name: 'larso_project'
 version: '1.0.0'
 config-version: 2
 
@@ -36,6 +36,38 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.l
 
 models:
+  larso_project:
     staging:
-      +materialized: caca
+      +materialized: table
+      +database: DBT
+      +schema: |
+        {%- if target.name == "default" -%} DBT_STAGING
+        {%- elif target.name == "dev"  -%} DBT_STAGING
+        {%- elif target.name == "qa"  -%} DBT_STAGING
+        {%- elif target.name == "prod"  -%} DBT_STAGING
+        {%- else -%} invalid_database
+        {%- endif -%}
+    integration: 
+      +materialized: table
+      +database: DBT
+      +schema: |
+        {%- if target.name == "default" -%} DBT_STAGING
+        {%- elif target.name == "dev"  -%} DBT_STAGING
+        {%- elif target.name == "qa"  -%} DBT_STAGING
+        {%- elif target.name == "prod"  -%} DBT_STAGING
+        {%- else -%} invalid_database
+        {%- endif -%}
+    load:
+      +materialized: table
+      +database: DBT
+      +schema: |
+        {%- if target.name == "default" -%} DBT_TARGET
+        {%- elif target.name == "dev"  -%} DBT_TARGET
+        {%- elif target.name == "qa"  -%} DBT_TARGET
+        {%- elif target.name == "prod"  -%} DBT_TARGET
+        {%- else -%} invalid_database
+        {%- endif -%}
 
+vars:
+  var1: 'test'
+  var2: ''
