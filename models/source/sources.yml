@@ -11,7 +11,5 @@ sources:
       - name: ORDERS
       - name: PART
       - name: PARTSUPP
-      - name : REGION
-      - name : SUPPLIER 
-      
-  
+      - name: REGION
+      - name: SUPPLIER

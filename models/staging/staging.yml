@@ -12,5 +12,5 @@ models:
     description: staging table
   - name: stg_region
     description: staging table
-  - name: stg_supplier 
+  - name: stg_supplier
     description: staging table

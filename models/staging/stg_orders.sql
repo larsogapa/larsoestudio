@@ -1,5 +1,1 @@
-with a as (
-    select * from {{source("TPCH_SF1","ORDERS")}}
-)
-
-select * from a
+with a as (select * from {{ source("TPCH_SF1", "ORDERS") }}) select * from a
